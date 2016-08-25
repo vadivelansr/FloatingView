@@ -382,7 +382,7 @@ public class FloatingViewManager implements ScreenChangedListener, View.OnTouchL
      * @param view    フローティングさせるView
      * @param options Options
      */
-    public void addViewToWindow(View view, Options options) {
+    public FloatingView addViewToWindow(View view, Options options) {
         final boolean isFirstAttach = mFloatingViewList.isEmpty();
         // FloatingView
         final FloatingView floatingView = new FloatingView(mContext);
@@ -420,6 +420,8 @@ public class FloatingViewManager implements ScreenChangedListener, View.OnTouchL
         }
         // 必ずトップに来て欲しいので毎回貼り付け
         mWindowManager.addView(mTrashView, mTrashView.getWindowLayoutParams());
+        
+        return floatingView;
     }
 
     /**
